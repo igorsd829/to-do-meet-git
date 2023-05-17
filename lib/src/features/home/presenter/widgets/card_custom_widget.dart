@@ -23,7 +23,7 @@ class CardCustomWidget extends StatelessWidget {
         borderRadius: BorderRadius.circular(20),
       ),
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
+        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
         child: SizedBox(
             width: double.infinity,
             child: Padding(
@@ -73,24 +73,31 @@ class CardCustomWidget extends StatelessWidget {
                         style: const TextStyle(fontSize: 13),
                       ),
                       const Expanded(child: SizedBox()),
+                      //
                       Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 5),
-                        child: Row(
-                          children: const [
-                            Align(
-                              widthFactor: 0.5,
-                              child: CircleAvatar(backgroundColor: Colors.red),
-                            ),
-                            Align(
-                              widthFactor: 0.5,
-                              child:
-                                  CircleAvatar(backgroundColor: Colors.black),
-                            ),
-                            Align(
-                              widthFactor: 0.5,
-                              child: CircleAvatar(backgroundColor: Colors.blue),
-                            ),
-                          ],
+                        child: Container(
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(20)),
+                          height: 40,
+                          width: 60,
+                          child: ListView.builder(
+                            scrollDirection: Axis.horizontal,
+                            itemCount: 3,
+                            itemBuilder: (context, index) {
+                              return Align(
+                                widthFactor: 0.5,
+                                child: ClipRRect(
+                                  borderRadius: BorderRadius.circular(50),
+                                  child: Image.network(
+                                    'https://i.pinimg.com/564x/4e/b0/c2/4eb0c2e4912e3dabd00b1c79cd5dac47.jpg',
+                                    height: 35,
+                                    width: 35,
+                                  ),
+                                ),
+                              );
+                            },
+                          ),
                         ),
                       )
                     ],
