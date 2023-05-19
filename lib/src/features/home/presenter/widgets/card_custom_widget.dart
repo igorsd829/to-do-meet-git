@@ -33,7 +33,7 @@ class _CardCustomWidgetState extends State<CardCustomWidget> {
         width: double.infinity,
         child: Card(
           color: expanded! ? widget.color!.withOpacity(0.1) : Colors.white,
-          elevation: 2,
+          elevation: 0,
           borderOnForeground: true,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(20),
