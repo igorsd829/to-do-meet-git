@@ -78,58 +78,108 @@ class _CardCustomWidgetState extends State<CardCustomWidget> {
                         const SizedBox(
                           height: 5,
                         ),
-                        !expanded!
-                            ? Row(
-                                children: [
-                                  const SizedBox(
-                                    height: 10,
-                                    width: 10,
-                                  ),
-                                  const SizedBox(
-                                    width: 15,
-                                  ),
-                                  !expanded!
-                                      ? Text(
-                                          '${widget.subtitle.substring(0, 25)}...', //
-                                          style: const TextStyle(fontSize: 13),
-                                        )
-                                      : const SizedBox(),
-                                  const Expanded(child: SizedBox()),
-                                  !expanded!
-                                      ? Padding(
-                                          padding: const EdgeInsets.symmetric(
-                                              horizontal: 5),
-                                          child: Container(
-                                            decoration: BoxDecoration(
-                                                borderRadius:
-                                                    BorderRadius.circular(20)),
-                                            height: 40,
-                                            width: 60,
-                                            child: ListView.builder(
-                                              scrollDirection: Axis.horizontal,
-                                              itemCount: 3,
-                                              itemBuilder: (context, index) {
-                                                return Align(
-                                                  widthFactor: 0.5,
-                                                  child: ClipRRect(
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            50),
-                                                    child: Image.network(
-                                                      'https://i.pinimg.com/564x/4e/b0/c2/4eb0c2e4912e3dabd00b1c79cd5dac47.jpg',
-                                                      height: 35,
-                                                      width: 35,
-                                                    ),
-                                                  ),
-                                                );
-                                              },
+
+                        Container(
+                          height: 40,
+                          width: double.infinity,
+                          color: Colors.transparent,
+                          child: Stack(
+                            alignment: Alignment.centerLeft,
+                            children: [
+                              !expanded!
+                                  ? Text(
+                                      '${widget.subtitle.substring(0, 25)}...', //
+                                      style: const TextStyle(fontSize: 13),
+                                    )
+                                  : const SizedBox(),
+                              AnimatedPositioned(
+                                  height: 40,
+                                  width: 120,
+                                  left: expanded! ? 10 : 250,
+                                  duration: const Duration(seconds: 1),
+                                  child: Padding(
+                                    padding: const EdgeInsets.symmetric(
+                                        horizontal: 5),
+                                    child: Container(
+                                      decoration: BoxDecoration(
+                                          borderRadius:
+                                              BorderRadius.circular(20)),
+                                      height: 40,
+                                      width: 60,
+                                      child: ListView.builder(
+                                        scrollDirection: Axis.horizontal,
+                                        itemCount: 3,
+                                        itemBuilder: (context, index) {
+                                          return Align(
+                                            widthFactor: 0.5,
+                                            child: ClipRRect(
+                                              borderRadius:
+                                                  BorderRadius.circular(50),
+                                              child: Image.network(
+                                                'https://i.pinimg.com/564x/4e/b0/c2/4eb0c2e4912e3dabd00b1c79cd5dac47.jpg',
+                                                height: 35,
+                                                width: 35,
+                                              ),
                                             ),
-                                          ),
-                                        )
-                                      : const SizedBox()
-                                ],
-                              )
-                            : const SizedBox(),
+                                          );
+                                        },
+                                      ),
+                                    ),
+                                  )),
+                            ],
+                          ),
+                        ),
+
+                        //  Row(
+                        //       children: [
+                        //         const SizedBox(
+                        //           height: 10,
+                        //           width: 10,
+                        //         ),
+                        //         const SizedBox(
+                        //           width: 15,
+                        //         ),
+                        //         !expanded!
+                        // ? Text(
+                        //     '${widget.subtitle.substring(0, 25)}...', //
+                        //     style: const TextStyle(fontSize: 13),
+                        //   )
+                        //             : const SizedBox(),
+                        //         const Expanded(child: SizedBox()),
+                        //         !expanded!
+                        // ? Padding(
+                        //     padding: const EdgeInsets.symmetric(
+                        //         horizontal: 5),
+                        //     child: Container(
+                        //       decoration: BoxDecoration(
+                        //           borderRadius:
+                        //               BorderRadius.circular(20)),
+                        //       height: 40,
+                        //       width: 60,
+                        //       child: ListView.builder(
+                        //         scrollDirection: Axis.horizontal,
+                        //         itemCount: 3,
+                        //         itemBuilder: (context, index) {
+                        //           return Align(
+                        //             widthFactor: 0.5,
+                        //             child: ClipRRect(
+                        //               borderRadius:
+                        //                   BorderRadius.circular(
+                        //                       50),
+                        //               child: Image.network(
+                        //                 'https://i.pinimg.com/564x/4e/b0/c2/4eb0c2e4912e3dabd00b1c79cd5dac47.jpg',
+                        //                 height: 35,
+                        //                 width: 35,
+                        //               ),
+                        //             ),
+                        //           );
+                        //         },
+                        //       ),
+                        //     ),
+                        //   )
+                        // : const SizedBox()
+                        //       ],
+                        //     )
                         AnimatedContainer(
                           duration: const Duration(milliseconds: 200),
                           height: expanded! ? 220 : 0,
