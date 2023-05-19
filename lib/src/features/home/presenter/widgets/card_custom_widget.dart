@@ -29,7 +29,7 @@ class _CardCustomWidgetState extends State<CardCustomWidget> {
       },
       child: AnimatedContainer(
         duration: const Duration(milliseconds: 200),
-        height: expanded! ? 330 : 120,
+        height: expanded! ? 350 : 120,
         width: double.infinity,
         child: Card(
           color: expanded! ? widget.color!.withOpacity(0.1) : Colors.white,
@@ -78,9 +78,9 @@ class _CardCustomWidgetState extends State<CardCustomWidget> {
                         const SizedBox(
                           height: 5,
                         ),
-
-                        Container(
-                          height: 40,
+                        AnimatedContainer(
+                          duration: const Duration(milliseconds: 200),
+                          height: (expanded ?? false) ? 60 : 40,
                           width: double.infinity,
                           color: Colors.transparent,
                           child: Stack(
@@ -93,10 +93,10 @@ class _CardCustomWidgetState extends State<CardCustomWidget> {
                                     )
                                   : const SizedBox(),
                               AnimatedPositioned(
-                                  height: 40,
+                                  height: (expanded ?? false) ? 60 : 40,
                                   width: 120,
                                   left: expanded! ? 10 : 250,
-                                  duration: const Duration(seconds: 1),
+                                  duration: const Duration(milliseconds: 300),
                                   child: Padding(
                                     padding: const EdgeInsets.symmetric(
                                         horizontal: 5),
@@ -104,8 +104,8 @@ class _CardCustomWidgetState extends State<CardCustomWidget> {
                                       decoration: BoxDecoration(
                                           borderRadius:
                                               BorderRadius.circular(20)),
-                                      height: 40,
-                                      width: 60,
+                                      height: (expanded ?? false) ? 50 : 35,
+                                      width: (expanded ?? false) ? 60 : 35,
                                       child: ListView.builder(
                                         scrollDirection: Axis.horizontal,
                                         itemCount: 3,
@@ -117,8 +117,12 @@ class _CardCustomWidgetState extends State<CardCustomWidget> {
                                                   BorderRadius.circular(50),
                                               child: Image.network(
                                                 'https://i.pinimg.com/564x/4e/b0/c2/4eb0c2e4912e3dabd00b1c79cd5dac47.jpg',
-                                                height: 35,
-                                                width: 35,
+                                                height: (expanded ?? false)
+                                                    ? 50
+                                                    : 35,
+                                                width: (expanded ?? false)
+                                                    ? 50
+                                                    : 35,
                                               ),
                                             ),
                                           );
@@ -182,7 +186,7 @@ class _CardCustomWidgetState extends State<CardCustomWidget> {
                         //     )
                         AnimatedContainer(
                           duration: const Duration(milliseconds: 200),
-                          height: expanded! ? 220 : 0,
+                          height: expanded! ? 210 : 0,
                           width: double.infinity,
                           color: Colors.transparent,
                           child: SingleChildScrollView(
@@ -199,36 +203,36 @@ class _CardCustomWidgetState extends State<CardCustomWidget> {
                               ),
                               Column(
                                 children: [
-                                  Row(
-                                    mainAxisAlignment: MainAxisAlignment.start,
-                                    children: [
-                                      Container(
-                                        decoration: BoxDecoration(
-                                            borderRadius:
-                                                BorderRadius.circular(20)),
-                                        height: 50,
-                                        width: 250,
-                                        child: ListView.builder(
-                                          scrollDirection: Axis.horizontal,
-                                          itemCount: 3,
-                                          itemBuilder: (context, index) {
-                                            return Align(
-                                              widthFactor: 1,
-                                              child: ClipRRect(
-                                                borderRadius:
-                                                    BorderRadius.circular(50),
-                                                child: Image.network(
-                                                  'https://i.pinimg.com/564x/4e/b0/c2/4eb0c2e4912e3dabd00b1c79cd5dac47.jpg',
-                                                  height: 50,
-                                                  width: 50,
-                                                ),
-                                              ),
-                                            );
-                                          },
-                                        ),
-                                      ),
-                                    ],
-                                  ),
+                                  // Row(
+                                  //   mainAxisAlignment: MainAxisAlignment.start,
+                                  //   children: [
+                                  //     Container(
+                                  //       decoration: BoxDecoration(
+                                  //           borderRadius:
+                                  //               BorderRadius.circular(20)),
+                                  //       height: 50,
+                                  //       width: 250,
+                                  //       child: ListView.builder(
+                                  //         scrollDirection: Axis.horizontal,
+                                  //         itemCount: 3,
+                                  //         itemBuilder: (context, index) {
+                                  //           return Align(
+                                  //             widthFactor: 1,
+                                  //             child: ClipRRect(
+                                  //               borderRadius:
+                                  //                   BorderRadius.circular(50),
+                                  //               child: Image.network(
+                                  //                 'https://i.pinimg.com/564x/4e/b0/c2/4eb0c2e4912e3dabd00b1c79cd5dac47.jpg',
+                                  //                 height: 50,
+                                  //                 width: 50,
+                                  //               ),
+                                  //             ),
+                                  //           );
+                                  //         },
+                                  //       ),
+                                  //     ),
+                                  //   ],
+                                  // ),
                                   const SizedBox(
                                     height: 5,
                                   ),
