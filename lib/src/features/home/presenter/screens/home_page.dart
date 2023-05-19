@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import '../../data/list.dart';
 import '../../data/models/to_do_task.dart';
 import '../widgets/card_custom_widget.dart';
-import '../widgets/priority.dart';
 import 'new_task.dart';
 
 class HomeScreen extends StatefulWidget {
